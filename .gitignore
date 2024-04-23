@@ -40,3 +40,14 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# php
+
+/backend/vendor
+/backend/.idea
+/backend/public
+Homestead.json
+Homestead.yaml
+.env
+.env*
+.phpunit.result.cache
