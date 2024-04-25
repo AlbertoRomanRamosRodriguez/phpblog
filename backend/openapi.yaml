@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: 'My First API'
+  version: '0.1'
+paths:
+  /api/posts/:
+    get:
+      operationId: 95d6a05a24109bd07654b6240c1fd1fe
+      responses:
+        '200':
+          description: 'Retrieves all posts from the database and returns them in JSON format.'
+    post:
+      operationId: 05d64e4e14448b8e49a7c2e01760e162
+      responses:
+        '201':
+          description: 'Creates a new post record in the database using validated data from the request body.'
+  '/api/posts/{id}':
+    get:
+      operationId: be6dad183f1bba1462f9748a8f9e1e07
+      responses:
+        '200':
+          description: 'Retrieves all posts from the database and returns them in JSON format.'
+    put:
+      operationId: 929614537d76a081a92170a41ed3bdb3
+      responses:
+        '201':
+          description: ' Updates an existing post record identified by the `$id` parameter'
+    delete:
+      operationId: 976001c8b1bbc00a6c0c6244820dd677
+      responses:
+        '201':
+          description: ' Deletes an existing post record identified by the `$id` parameter'
