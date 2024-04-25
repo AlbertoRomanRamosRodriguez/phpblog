@@ -1,0 +1,25 @@
+version: "3.8"  # Adjust version if needed
+
+services:
+  # Database service
+  db:
+    image: postgres:alpine3.19  # Match your Dockerfile version
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: blogpost
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Persistent storage for database
+
+  # Lumen API service
+  api:
+    image: ntsprintblog_api
+    depends_on:
+      - db  # Ensure db service starts before api
+    volumes:
+      - .:/usr/src/app  # Mount current directory to app directory
+    entrypoint: ["php", "artisan", "migrate"]  # Install dependencies before build
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "public"]  # Run migrations before starting server
+
+volumes:
+  pgdata: {}  # Define empty volume for persistence
