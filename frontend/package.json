@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon --watch ./src --exec ng serve --host 0.0.0.0",
-    "build": "ng build",
+    "build": "ng build --output-path ../backend/public && mv ../backend/public/browser/* ../backend/public/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
