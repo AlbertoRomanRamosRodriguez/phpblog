@@ -73,7 +73,7 @@ This project uses Lumen for the backend API and Angular for the frontend. It out
    yarn install
    ```
 ### Run the application
-1. **Run the server***
+1. **Run the server**
    Build the frontend
 
    ```bash 
@@ -85,7 +85,7 @@ This project uses Lumen for the backend API and Angular for the frontend. It out
    ```bash
    php -S localhost:8000 -t public
    ```
-2. **Debug the frontend** 
+3. **Debug the frontend** 
     
     Optionally use 
     
