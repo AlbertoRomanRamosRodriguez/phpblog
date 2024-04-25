@@ -6,26 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-
     /**
-     * The attributes that are mass assignable.
+     * Defines which attributes are allowed for mass assignment during creation or update.
+     * This helps prevent security vulnerabilities like mass assignment.
      *
      * @var array
      */
     protected $fillable = [
-        'id', 'title', 'content'
+        'id', 'title', 'content', 'author'
     ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * Specifies attributes that should be excluded from the model's JSON representation.
+     * This can be useful for security reasons or to avoid unnecessary data exposure.
      *
      * @var array
      */
     protected $hidden = [];
 }
-
-// class Post {
-//     public $id;
-//     public $title;
-//     public $content;
-// }
