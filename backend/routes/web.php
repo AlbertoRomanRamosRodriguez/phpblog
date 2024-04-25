@@ -14,7 +14,13 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    $filePath = public_path('index.html');
+
+    if (File::exists($filePath)) {
+        return response()->file($filePath);
+    } else {
+        abort(404);
+    }
 });
 
 $router->group( ['prefix' => 'api'], function () use ($router) {
