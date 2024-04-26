@@ -59,33 +59,48 @@ This project uses Lumen for the backend API and Angular for the frontend. It out
    ```bash
    php artisan migrate
    ```
+5. **Stop the database container**
+   From this point forward the database container is no longer necessary as the application will be run using docker-compose. Use 
+
+   ```bash
+   docker stop postgresql
+   ```
+   
+   to stop the container
+
 ### Angular Frontend Setup:
 
-1. Install dependencies using npm or yarn:
+1. Enter the frontend directory
+
+   ```bash
+   cd frontend
+   ```
+
+2. Install angular globaly using 
+   ```bash
+   npm install -g @angular/cli
+   ```
+3. Install the frontend dependencies with  
 
    ```bash
    npm install
-   ``` 
-   
-   or
-   
-   ```bash
-   yarn install
    ```
+
 ### Run the application
 1. **Run the server**
-   Build the frontend
+   Build the frontend. The script will also move the built files to the `public` directory:
 
    ```bash 
    npm run build
    ```
 
-   Run the Lumen development server using the following command:
+   Run the Lumen server using docker-compose:
 
    ```bash
-   php -S localhost:8000 -t public
+   docker-compose up -d
    ```
-3. **Debug the frontend** 
+
+2. **Debug the frontend** 
     
     Optionally use 
     
@@ -93,4 +108,4 @@ This project uses Lumen for the backend API and Angular for the frontend. It out
     npm start
     ```
 
-    to run the frontend in development mode.
+    to run the frontend in development mode. After the frontend's been done with, build the frontend again so the changes are reflected in the API and reload the page.
