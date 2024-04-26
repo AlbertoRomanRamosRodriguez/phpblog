@@ -1,0 +1,12 @@
+# Ignore version control directories
+.git
+.gitignore
+
+# Ignore IDE or editor configuration files
+.idea/*
+.vscode/*
+*.sublime*
+
+# Ignore composer cache and vendor directory
+vendor/
+composer.lock

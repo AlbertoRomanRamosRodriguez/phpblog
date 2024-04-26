@@ -1,0 +1,26 @@
+version: "3.8"  # Adjust version if needed
+
+services:
+  # Database service
+  db:
+    image: postgres:alpine3.19  # Match your Dockerfile version
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: blogpost
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Persistent storage for database
+
+  # Lumen API service
+  api:
+    build: .
+    depends_on:
+      - db  # Ensure db service starts before api
+    volumes:
+      - .:/usr/src/app  # Mount current directory to app directory
+    ports:
+      - "8000:8000"  # Expose container port 8000 to host port 8000
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "public"]  # Start the server
+
+volumes:
+  pgdata: {}  # Define empty volume for persistence
