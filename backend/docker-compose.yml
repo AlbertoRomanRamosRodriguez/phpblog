@@ -13,13 +13,14 @@ services:
 
   # Lumen API service
   api:
-    image: ntsprintblog_api
+    build: .
     depends_on:
       - db  # Ensure db service starts before api
     volumes:
       - .:/usr/src/app  # Mount current directory to app directory
-    entrypoint: ["php", "artisan", "migrate"]  # Install dependencies before build
-    command: ["php", "-S", "0.0.0.0:8000", "-t", "public"]  # Run migrations before starting server
+    ports:
+      - "8000:8000"  # Expose container port 8000 to host port 8000
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "public"]  # Start the server
 
 volumes:
   pgdata: {}  # Define empty volume for persistence
